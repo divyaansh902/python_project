@@ -1,0 +1,34 @@
+def display_contacts(contacts):
+    if not contacts:
+        print("No contacts available.")
+    else:
+        for name, number in contacts.items():
+            print(f"{name}: {number}")
+
+def main():
+    contacts = {}
+    while True:
+        print("\n1. Add contact\n2. View contacts\n3. Remove contact\n4. Exit")
+        choice = input("Choose an option: ")
+        
+        if choice == '1':
+            name = input("Enter contact name: ")
+            number = input("Enter contact number: ")
+            contacts[name] = number
+            print(f"Added contact: {name} - {number}")
+        elif choice == '2':
+            display_contacts(contacts)
+        elif choice == '3':
+            name = input("Enter contact name to remove: ")
+            if name in contacts:
+                del contacts[name]
+                print(f"Removed contact: {name}")
+            else:
+                print("Contact not found.")
+        elif choice == '4':
+            break
+        else:
+            print("Invalid choice.")
+
+if __name__ == "__main__":
+    main()
